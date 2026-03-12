@@ -1,0 +1,283 @@
+{
+  "Mitigation Strategy": "6. Patch OS",
+  "Maturity Level 1": {
+    "generatedAt": "2026-02-19T03:18:19Z",
+    "controls": [
+      {
+        "ControlDescription": "An automated method of asset discovery is used at least fortnightly to support the detection of assets for subsequent vulnerability scanning activities.",
+        "tests": [
+          {
+            "testId": "ML1-PO-01",
+            "testDescription": "An automated method of asset discovery is run and reviewed at least fortnightly.",
+            "testMethodology": "Confirm that a method of asset discovery is in place (such as an asset discovery tool or a vulnerability scanner with equivalent functionality) and that it is configured to be run in an automated manner at least every fortnight. Confirm that any anomalies that are identified are reviewed and actioned.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0/0 devices discovered with asset discovery tool"
+            },
+            "manualControl": {
+              "manualControlQuery": "submit evidence of asset review process",
+              "manualControlsRequired": true,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      },
+      {
+        "ControlDescription": "A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities.",
+        "tests": [
+          {
+            "testId": "ML1-PO-02",
+            "testDescription": "A vulnerability scanner with an up-to-date vulnerability database is being used for vulnerability scanning activities.",
+            "testMethodology": "Confirm that a vulnerability scanner is in place and that the vulnerability database it uses is being updated within 24 hours prior to its use.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "Reputable vendors running vulnerability using SaaS assumed to have an up-to-date vulnerability database"
+            },
+            "manualControl": {
+              "manualControlQuery": "Is the vulnerability database being updated every day for vulnerability scanning activities",
+              "manualControlsRequired": true,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      },
+      {
+        "ControlDescription": "A vulnerability scanner is used at least daily to identify missing patches or updates for security vulnerabilities in operating systems of internet-facing services.",
+        "tests": [
+          {
+            "testId": "ML1-PO-03",
+            "testDescription": "A vulnerability scanner is run and reviewed daily to scan the organisation\u2019s internet-facing services.",
+            "testMethodology": "Confirm that a vulnerability scanner is in place, and it is configured to scan the organisation\u2019s internet-facing services. Confirm that reports from the vulnerability scanner are reviewed by the responsible staff daily, and that identified issues have been observed and actioned.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0/0 internet-facing services with daily vulnerability detection"
+            },
+            "manualControl": {
+              "manualControlQuery": "submit evidence of daily vulnerability review on internet-facing services",
+              "manualControlsRequired": true,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      },
+      {
+        "ControlDescription": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for security vulnerabilities in operating systems of workstations, servers and network devices.",
+        "tests": [
+          {
+            "testId": "ML1-PO-04",
+            "testDescription": "A vulnerability scanner is run and reviewed at least fortnightly to scan the organisation\u2019s operating systems.",
+            "testMethodology": "Confirm that a vulnerability scanner is in place, and it is configured to scan the organisation\u2019s operating systems, typically requiring a credentialed scan. Confirm that reports from the vulnerability scanner are reviewed by the responsible staff fortnightly, and that identified issues have been observed and actioned.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0/0 operating systems with fortnightly vulnerability detection"
+            },
+            "manualControl": {
+              "manualControlQuery": "submit evidence of fortnightly vulnerability review on operating systems",
+              "manualControlsRequired": true,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      },
+      {
+        "ControlDescription": "Patches, updates or vendor mitigations for security vulnerabilities in operating systems of internet-facing services are applied within two weeks of release, or within 48 hours if an exploit exists.",
+        "tests": [
+          {
+            "testId": "ML1-PO-05",
+            "testDescription": "The organisation has an example of where an available exploit has been identified and patched within 48 hours.",
+            "testMethodology": "If available, request evidence of the identification and patching of a system that contained an exploitable vulnerability within the environment.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "CVE-XXXXXX on device X was patched within 48 hrs: published YYYY-MM-DDThh:mm:ssZ, patched YYYY-MM-DDThh:mm:ssZ"
+            },
+            "manualControl": {
+              "manualControlQuery": "",
+              "manualControlsRequired": false,
+              "manualControlsFulfilled": false
+            }
+          },
+          {
+            "testId": "ML1-PO-06",
+            "testDescription": "Internet-facing system that have a vulnerable operating system with an exploit that has been available for greater than 48 hours are patched or mitigated.",
+            "testMethodology": "View vulnerability management solution, logon to server to verify patch applied successfully or review mitigation strategy.\r\nE8MVT will assesses based on most recently installed critical patch. Does not test for existing exploits or 48-hour timeframe requirements.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0/0 internet-facing operating systems with critical or actively exploited vulnerabilities older than 48 hours"
+            },
+            "manualControl": {
+              "manualControlQuery": "",
+              "manualControlsRequired": false,
+              "manualControlsFulfilled": false
+            }
+          },
+          {
+            "testId": "ML1-PO-07",
+            "testDescription": "Internet-facing systems that have a vulnerable operating system are patched or mitigated within two weeks.",
+            "testMethodology": "Use vulnerability management solution to perform a patch audit of servers.\r\nRetrieve the update history of the workstation, noting the release date of the patch and the date it was installed. Look for differences greater than two weeks.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0/0 internet-facing operating systems with vulnerabilities older than 2 weeks"
+            },
+            "manualControl": {
+              "manualControlQuery": "",
+              "manualControlsRequired": false,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      },
+      {
+        "ControlDescription": "Patches, updates or vendor mitigations for security vulnerabilities in operating systems of workstations, servers and network devices are applied within one month of release.",
+        "tests": [
+          {
+            "testId": "ML1-PO-08",
+            "testDescription": "The organisation has an effective process for patching operating systems within one month.",
+            "testMethodology": "Confirm the existence of a list of managed operating systems, and where they are located. Ensure a process for identifying vulnerabilities for operating systems in the list is consistently followed. Request evidence of the patching of these systems within one month.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": ""
+            },
+            "manualControl": {
+              "manualControlQuery": "Submit list of managed operating systems and where they are located. Submit vulnerability detection and patching process alongside evidence of following said process",
+              "manualControlsRequired": true,
+              "manualControlsFulfilled": false
+            }
+          },
+          {
+            "testId": "ML1-PO-09",
+            "testDescription": "Operating systems that have a vulnerability are patched or mitigated within one month.",
+            "testMethodology": "Use a vulnerability management solution to perform a patch audit of all systems.\r\nRetrieve the update history of the systems in scope, noting the release date of the patch and the date it was installed. Look for differences greater than one month.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0/0 operating systems with vulnerabilities older than 1 month"
+            },
+            "manualControl": {
+              "manualControlQuery": "",
+              "manualControlsRequired": false,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      },
+      {
+        "ControlDescription": "Operating systems that are no longer supported by vendors are replaced.",
+        "tests": [
+          {
+            "testId": "ML1-PO-10",
+            "testDescription": "The organisation has removed unsupported operating systems from the environment.",
+            "testMethodology": "Confirm that the environment does not contain any operating systems no longer supported by the vendor. Use a vulnerability scanner to identify operating systems within the environment and check they are supported.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0 legacy devices detected"
+            },
+            "manualControl": {
+              "manualControlQuery": "",
+              "manualControlsRequired": false,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "Maturity Level 2": {
+    "generatedAt": "2026-02-19T03:18:19Z",
+    "controls": [
+      {
+        "ControlDescription": "A vulnerability scanner is used at least weekly to identify missing patches or updates for security vulnerabilities in operating systems of workstations, servers and network devices.",
+        "tests": [
+          {
+            "testId": "ML2-PO-01",
+            "testDescription": "A vulnerability scanner is run and reviewed at least weekly to scan the organisation\u2019s operating systems.",
+            "testMethodology": "Confirm that a vulnerability scanner is in place, and it is configured to scan the organisation\u2019s operating systems, typically requiring a credentialed scan. Confirm that reports from the vulnerability scanner are reviewed by the responsible staff weekly, and that identified issues have been observed and actioned.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0/0 operating systems with weekly vulnerability detection"
+            },
+            "manualControl": {
+              "manualControlQuery": "submit evidence of weekly vulnerability review on operating systems",
+              "manualControlsRequired": true,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      },
+      {
+        "ControlDescription": "Patches, updates or vendor mitigations for security vulnerabilities in operating systems of workstations, servers and network devices are applied within two weeks of release.",
+        "tests": [
+          {
+            "testId": "ML2-PO-02",
+            "testDescription": "The organisation has an effective process for patching operating systems within two weeks.",
+            "testMethodology": "Confirm the existence of a list of managed operating systems, and where they are located. Ensure a process for identifying vulnerabilities for operating systems in the list is consistently followed. Request evidence of the patching of these systems within two weeks.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": ""
+            },
+            "manualControl": {
+              "manualControlQuery": "Submit list of managed operating systems and where they are located. Submit vulnerability detection and patching process alongside evidence of following said process",
+              "manualControlsRequired": true,
+              "manualControlsFulfilled": false
+            }
+          },
+          {
+            "testId": "ML2-PO-03",
+            "testDescription": "Operating systems that have a vulnerability are patched or mitigated within two weeks.",
+            "testMethodology": "Use vulnerability management solution to perform a patch audit of all systems.\r\nRetrieve the update history of the system, noting the release date of the patch and the date it was installed. Look for differences greater than two weeks.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0/0 operating systems with vulnerabilities older than 2 weeks"
+            },
+            "manualControl": {
+              "manualControlQuery": "",
+              "manualControlsRequired": false,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "Maturity Level 3": {
+    "generatedAt": "2026-02-19T03:18:19Z",
+    "controls": [
+      {
+        "ControlDescription": "Patches, updates or vendor mitigations for security vulnerabilities in operating systems of workstations, servers and network devices are applied within two weeks of release, or within 48 hours if an exploit exists.",
+        "tests": [
+          {
+            "testId": "ML3-PO-01",
+            "testDescription": "Operating systems vulnerable to an exploit that has been available for greater than 48 hours are patched or mitigated.",
+            "testMethodology": "View vulnerability management solution, logon to server to verify patch applied successfully or review mitigation strategy.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0/0 operating systems with critical or actively exploited vulnerabilities older than 48 hours"
+            },
+            "manualControl": {
+              "manualControlQuery": "",
+              "manualControlsRequired": false,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      },
+      {
+        "ControlDescription": "The latest release, or the previous release, of operating systems are used for.",
+        "tests": [
+          {
+            "testId": "ML3-PO-02",
+            "testDescription": "The minimum version of the operating system is the current, or previous release (N-1 version).",
+            "testMethodology": "Query Active Directory using PowerShell commands or tools such as ADRecon or Bloodhound to identify operating system versions within the environment. Use a vulnerability management solution to scan all systems to record their operating system version.",
+            "technicalControl": {
+              "technicalControlFulfilled": true,
+              "technicalControlLogic": "0/0 operating systems with latest or previous release"
+            },
+            "manualControl": {
+              "manualControlQuery": "",
+              "manualControlsRequired": false,
+              "manualControlsFulfilled": false
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
