@@ -42,7 +42,16 @@ def _is_exploit_available(vulnerability: Any) -> bool:
     level = (vulnerability.globalExploitActivityLevel or "").strip().lower()
     return level in {"high", "medium", "critical", "very high", "very_high"}
 
+""" 
+Control Description:
+An automated method of asset discovery is used at least fortnightly 
+to support the detection of assets for subsequent vulnerability scanning activities
 
+testDescription:
+An automated method of asset discovery is run and reviewed at least fortnightly.
+
+ML1_PO_01
+"""
 def ML1_PO_01(environment: Environment) -> tuple[bool, str]:
     total = len(environment.devices)
     beingScannedByNetworkDiscovery = 0
@@ -63,6 +72,34 @@ def ML1_PO_01(environment: Environment) -> tuple[bool, str]:
         + " devices discovered with asset discovery tool.",
     )
 
+""" 
+ControlDescription: 
+A vulnerability scanner with an up-to-date vulnerability database is used 
+for vulnerability scanning activities.
+
+testDescription:
+A vulnerability scanner with an up-to-date vulnerability database is being used for vulnerability scanning activities.
+
+ML1_PO_02
+
+No technical data required, values are hardcoded as TrendAI vulnerability 
+scanners pass this test by default.
+"""
+
+
+""" 
+ControlDescription: 
+A vulnerability scanner is used at least daily to identify missing patches 
+or updates for security vulnerabilities in operating systems of internet-facing 
+services.
+
+testDescription:
+A vulnerability scanner is run and reviewed daily to scan the organisation\u2019s internet-facing services.
+
+ML1_PO_03 
+"""
+
+
 def ML1_PO_03(environment: Environment) -> tuple[bool, str]:
     total = 0
     compliantN = 0
@@ -80,7 +117,21 @@ def ML1_PO_03(environment: Environment) -> tuple[bool, str]:
         + str(total)
         + " internet-facing services with daily vulnerability detection.",
     )
-            
+
+""" 
+ControlDescription: 
+A vulnerability scanner is used at least fortnightly to identify missing patches 
+or updates for security vulnerabilities in operating systems of workstations, 
+servers and network devices.
+
+testDescription:
+A vulnerability scanner is run and reviewed at least fortnightly to scan the organisation\u2019s operating systems.
+
+ML1_PO_04 
+"""
+
+
+
 def ML1_PO_04(environment: Environment) -> tuple[bool, str]:
     total = 0
     compliantN = 0
@@ -96,6 +147,19 @@ def ML1_PO_04(environment: Environment) -> tuple[bool, str]:
         + str(total)
         + " operating systems with fortnightly vulnerability detection.",
     )
+
+""" 
+ControlDescription:
+Patches, updates or vendor mitigations for security vulnerabilities in operating systems
+of internet-facing services are applied within two weeks of release, or within 48 hours 
+if an exploit exists.
+
+testDescription:
+The organisation has an example of where an available exploit has been identified and 
+patched within 48 hours.
+
+ML1_PO_05 
+"""
 
 def ML1_PO_05(environment: Environment) -> tuple[bool, str]:
     for device in environment.devices:
@@ -125,6 +189,15 @@ def ML1_PO_05(environment: Environment) -> tuple[bool, str]:
         "within 48 hours of publication.",
     )
 
+""" 
+Same control as ML1_PO_05, but seperate test
+
+testDescription:
+Internet-facing system that have a vulnerable operating system with an exploit that has been 
+available for greater than 48 hours are patched or mitigated.
+
+ML1_PO_06 
+"""
 
 def ML1_PO_06(environment: Environment) -> tuple[bool, str]:
     total_internet_facing = 0
@@ -157,6 +230,14 @@ def ML1_PO_06(environment: Environment) -> tuple[bool, str]:
         "with critical or actively exploited vulnerabilities older than 48 hours",
     )
 
+""" 
+Same control as ML1_PO_05, but seperate test
+
+testDescription: Internet-facing systems that have a vulnerable operating system are patched 
+or mitigated within two weeks.
+
+ML1_PO_07 
+"""
 
 def ML1_PO_07(environment: Environment) -> tuple[bool, str]:
     total_internet_facing = 0
@@ -189,6 +270,29 @@ def ML1_PO_07(environment: Environment) -> tuple[bool, str]:
         "with vulnerabilities older than 2 weeks",
     )
 
+""" 
+ControlDescription:
+Patches, updates or vendor mitigations for security vulnerabilities in operating systems 
+of workstations, servers and network devices are applied within one month of release.
+
+testDescription: The organisation has an effective process for patching operating systems 
+within one month.
+
+
+Given that this test is measuring the internal processes of an organisation, 
+no technical data can prove compliance.
+
+ML1_PO_08 
+"""
+
+""" 
+Same control as ML1_PO_08, seperate test
+
+testDescription:
+Operating systems that have a vulnerability are patched or mitigated within one month.
+
+ML1_PO_09 
+"""
 
 def ML1_PO_09(environment: Environment) -> tuple[bool, str]:
     total_devices = len(environment.devices)
@@ -213,6 +317,15 @@ def ML1_PO_09(environment: Environment) -> tuple[bool, str]:
         non_compliant == 0,
         f"{non_compliant}/{total_devices} operating systems with vulnerabilities older than 1 month",
     )
+
+""" 
+ControlDescription:
+Operating systems that are no longer supported by vendors are replaced.
+
+testDescription:
+The organisation has removed unsupported operating systems from the environment.
+
+ML1_PO_10 """
 
 def ML1_PO_10(environment: Environment) -> tuple[bool, str]:
     legacy_devices = environment.cveManagementMetrics.get("legacyOSEndpointCount", 0)
